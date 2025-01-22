@@ -171,8 +171,8 @@ def compute_language_ordered_value(
     weight_mode: int = 1
 ) -> pd.Series :
     # Proportional calibration of execution times for different machines
-    frame.loc["Pypy"] = (frame.loc["Pypy"] * frame.loc["Python 3"] / frame.loc["Python-control"]).round(decimals=2)
-    frame.loc["Pyston"] = (frame.loc["Pyston"] * frame.loc["Python 3"] / frame.loc["Python-control"]).round(decimals=2)
+    frame.loc["Pypy"] = (frame.loc["Pypy"] * frame.loc["Python"] / frame.loc["Python-control"]).round(decimals=2)
+    frame.loc["Pyston"] = (frame.loc["Pyston"] * frame.loc["Python"] / frame.loc["Python-control"]).round(decimals=2)
     frame.drop("Python-control", inplace = True)
     # A simple algorithm to adjust the weights so that extreme values are less influential
     min_line = frame.min()
